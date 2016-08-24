@@ -1,49 +1,24 @@
-function listPrimes(number) { // create function that accepts a number of primes to count to
-	var primes = []; // create an array to store the prime numbers in
+function generatePrimes(numberToGenerate) { //create function that accepts a number of primes generate
+	var primes = []; //create an array to store the prime numbers in
+	var currentNumber = 2; //initialize current number at 2 because 1 is not a prime number
+	var limit = 550; //not sure the better solution? because first 100 primes ends at 541
 
-	for (var i = 0; i <= number; i++) { 
-
-		primes.push(i);
-		console.log('pushed: ' + i);
-
-		if (i === 1) {
-			primes.pop(i);  //remove 1 because it is not considered prime
+	if (numberToGenerate <= 0) { //if the user decides to enter 0 or a negative number
+		alert('please pick a positive number 1 to 100'); //tell them to enter a valid range
+	} else { //run the program
+		while (primes.length < numberToGenerate && currentNumber < limit) { //check to see if the number to generate has been met and if the current number is under the limit set
+			for (var i = 2; i <= limit; i++) { //starting at 2, increment by 1 until the limit is hit
+				if ((currentNumber % i === 0) && (currentNumber !== i)) { //if the current number mod i has no remainder and current number is not i
+					break;
+				} else if((currentNumber % i === 0) && (currentNumber === i)) { //but if the current number mod i has no remainder and the current number is i
+					primes.push(currentNumber); //add the number to the primes array
+					break;
+				}
+			}
+			currentNumber++; //increment number to escape while loop
 		}
-
-		if (i % 2 === 0) { //is this number divisible by 2 evenly?
-			if (i !== 2) {
-				primes.pop(i);
-				console.log('popped: ' + i);
-			}
-		} else if (i % 3 === 0) { //is this number divisible by 3 evenly?
-			if (i !== 3) {
-				primes.pop(i);
-				console.log('popped: ' + i);
-			}
-		} else if (i % 4 === 0) { //is this number divisible by 4 evenly?
-			if (i !== 4) {
-				primes.pop(i);
-				console.log('popped: ' + i);
-			}
-		} else if (i % 5 === 0) { //is this number divisible by 5 evenly?
-			if (i !== 5) {
-				primes.pop(i);
-				console.log('popped: ' + i);
-			}
-		} else if (i % 6 === 0) { //is this number divisible by 6 evenly?
-			if (i !== 6) {
-				primes.pop(i);
-				console.log('popped: ' + i);
-			}
-		} else if (i % 7 === 0) { //is this number divisible by 7 evenly?
-			if (i !== 7) {
-				primes.pop(i);
-				console.log('popped: ' + i);
-			}
-		}
+		return primes; //return the array of prime numbers
 	}
-	return primes;
-
 }
 
-listPrimes(100); // get the first x prime numbers between 0-100
+generatePrimes(100); // get the first x number of primes
