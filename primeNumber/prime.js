@@ -1,7 +1,7 @@
 function generatePrimes(numberToGenerate) { //create function that accepts a number of primes generate
 	var primes = []; //create an array to store the prime numbers in
 	var currentNumber = 2; //initialize current number at 2 because 1 is not a prime number
-	var limit = 550; //not sure the better solution? because first 100 primes ends at 541
+	var limit = Number.MAX_SAFE_INTEGER; // Kind of safe? is there something better you would recommend?
 
 	if (numberToGenerate <= 0) { //if the user decides to enter 0 or a negative number
 		alert('please pick a positive number 1 to 100'); //tell them to enter a valid range
