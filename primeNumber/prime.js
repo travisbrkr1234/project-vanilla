@@ -1,4 +1,4 @@
-function generatePrimes(numberToGenerate) {
+exports.generatePrimes = function(numberToGenerate) {
   var primes = [];
   var currentNumber = 2;
 
@@ -17,5 +17,3 @@ function generatePrimes(numberToGenerate) {
   }
   return primes;
 }
-
-generatePrimes(15);
