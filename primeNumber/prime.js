@@ -3,7 +3,7 @@ exports.generatePrimes = function(numberToGenerate) {
   var currentNumber = 2;
 
   if ((numberToGenerate <= 0) || (Number.isSafeInteger(numberToGenerate) === false) ) {
-    throw "please enter a positive number 1 to 100";
+    throw "please enter a positive number";
   }
   for (currentNumber; primes.length < numberToGenerate; currentNumber++) {
     for (var i = 2; i <= Number.MAX_SAFE_INTEGER; i++) {
@@ -16,4 +16,4 @@ exports.generatePrimes = function(numberToGenerate) {
     }
   }
   return primes;
-}
+};

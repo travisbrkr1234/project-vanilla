@@ -1,4 +1,4 @@
-function findSumOfMultiples(range) {
+exports.generateMultiples = function(range) {
   var total = 0;
 
   for (var number = 0; number < range; number++) {
@@ -9,5 +9,3 @@ function findSumOfMultiples(range) {
 
   return total;
 }
-
-console.log('total of sums: ' + findSumOfMultiples(1000));
